@@ -131,7 +131,7 @@ function removeChar(stuff, id) {
 function nextVals(board, i, j) {
   let possible_values = generateVal(board, board[i], getCol(board, i, j), getBox(board, i, j), i, j);
   let copy = possible_values.slice();
-          if (nextRow(board,i,j) == -1) {
+          if (nextRow(board,i,j) === -1) {
               // cout <<"(" << i << "," << j << ")" << endl;
               return copy;
           }
@@ -196,7 +196,7 @@ function Grid() {
     console.log(chunkedList)
     for (let i = 0; i < 9; ++i){
       for (let j = 0; j <9; ++j) {
-        if (chunkedList[i][j] == "") {
+        if (chunkedList[i][j] === "") {
           chunkedList[i][j] = "."
         }
       }
@@ -213,23 +213,23 @@ function Grid() {
     for (let i = 0; i < 81; i++) {
       var c = i % 27;
       if (c === 10 || c === 13 || c === 16) { //no border
-        cells.push(<input type = "text" key={i} value = {values[i]} onChange={event => getData(event, i)} />);
+        cells.push(<input type = "text" key={i} maxLength ="1" value = {values[i]} onChange={event => getData(event, i)} />);
       } else if (c === 0 || c === 3 || c === 6 ) {
-        cells.push(<input className ="upleft" type = "text" value = {values[i]} key={i} onChange={event => getData(event, i)}/>);
+        cells.push(<input className ="upleft" maxLength ="1" type = "text" value = {values[i]} key={i} onChange={event => getData(event, i)}/>);
       } else if (c === 1 || c === 4|| c===7) {
-        cells.push(<input className ="up" type = "text" value = {values[i]} key={i} onChange={event => getData(event, i)}/>);
+        cells.push(<input className ="up" maxLength ="1" type = "text" value = {values[i]} key={i} onChange={event => getData(event, i)}/>);
       } else if (c === 2 || c === 5 || c === 8) {
-        cells.push(<input className ="upright" type = "text" value = {values[i]} key={i} onChange={event => getData(event, i)}/>);
+        cells.push(<input className ="upright" maxLength ="1" type = "text" value = {values[i]} key={i} onChange={event => getData(event, i)}/>);
       } else if (c === 9 || c === 12 || c === 15) {
-        cells.push(<input className ="left" type = "text" value = {values[i]} key={i} onChange={event => getData(event, i)}/>);
+        cells.push(<input className ="left" maxLength ="1" type = "text" value = {values[i]} key={i} onChange={event => getData(event, i)}/>);
       } else if (c === 11 || c === 14 || c=== 17) {
-        cells.push(<input className ="right" type = "text" value = {values[i]} key={i} onChange={event => getData(event, i)}/>);
+        cells.push(<input className ="right" maxLength ="1" type = "text" value = {values[i]} key={i} onChange={event => getData(event, i)}/>);
       } else if (c=== 18 || c=== 21 || c=== 24) {
-        cells.push(<input className ="downleft" type = "text" value = {values[i]} key={i} onChange={event => getData(event, i)}/>);
+        cells.push(<input className ="downleft" maxLength ="1" type = "text" value = {values[i]} key={i} onChange={event => getData(event, i)}/>);
       } else if (c === 19 || c=== 22|| c=== 25) {
-        cells.push(<input className ="down" type = "text" value = {values[i]} key={i} onChange={event => getData(event, i)}/>);
+        cells.push(<input className ="down" maxLength ="1" type = "text" value = {values[i]} key={i} onChange={event => getData(event, i)}/>);
       } else {
-        cells.push(<input className ="downright" type = "text" value = {values[i]} key={i} onChange={event => getData(event, i)}/>);
+        cells.push(<input className ="downright" maxLength ="1" type = "text" value = {values[i]} key={i} onChange={event => getData(event, i)}/>);
       } 
     }
   
